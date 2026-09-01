@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## アーキテクチャの要点（複数ファイルにまたがる文脈）
 
-- **完全クライアント側処理**（ADR-001）: PDF本体はサーバーへ送らない。Cloudflare Pages は静的配信のみ（`adapter-static`, ADR-009）。
+- **完全クライアント側処理**（ADR-001）: PDF本体はサーバーへ送らない。Cloudflare Workers（Static Assets）は静的配信のみ（`adapter-static`, ADR-009）。
 - **COOP/COEP不要**（ADR-004, `docs/research/wasm-threading-coi.md`）: 候補エンジンはブラウザで single-thread 実行、`SharedArrayBuffer` 不使用。重い処理は通常の Web Worker + Transferable。
 - **エンジンは差し替え可能な抽象の背後**（`CompressionEngine`: initialize/inspect/compress/dispose, ADR-008）。第一候補 Ghostscript WASM（画像/スキャンに強い）、第二候補 pdfcpu（構造最適化・テキストに強い、画像は縮小しない）。
 - **コンテンツ別ルーティング**（ADR-010, 実証済み）: `inspect` で種別判定 → 種別ごとに最適エンジン/設定 → **ガード＋フォールバック**（候補=[第一選択, pdfcpu, passthrough]から「入力以下で最小」を採用）。これにより誤分類・肥大化でも**出力が入力を超えない**ことを保証（"don't grow" ガード, ADR-007）。

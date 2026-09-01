@@ -1,7 +1,7 @@
 # PDF圧縮（ブラウザ内処理）
 
 完全クライアント側で動作するPDF圧縮アプリ。**PDFはサーバーへ送信しません**（ADR-001）。
-SvelteKit + `adapter-static`（ADR-009）で静的サイトとしてビルドし、Cloudflare Pages に配信する。
+SvelteKit + `adapter-static`（ADR-009）で静的サイトとしてビルドし、**Cloudflare Workers の静的アセット**として配信する（`wrangler.toml` の `[assets]`）。
 
 ソースコード: <https://github.com/saita-teppei/pdf-compressor>（AGPL-3.0）
 

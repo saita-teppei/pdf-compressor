@@ -3,7 +3,7 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /**
  * 完全クライアント側処理・サーバールート無し（ADR-001/009）。
- * adapter-static で静的アセットとして Cloudflare Pages に配信する。
+ * adapter-static の出力を Cloudflare Workers の静的アセットとして配信する（wrangler.toml の [assets]）。
  * 実質1ページのためプリレンダリングのみ（SPA fallback は付けない＝プリレンダHTMLが活きる）。
  * 将来クライアント専用の動的ルートを増やす場合は fallback か _redirects を再検討する。
  */

@@ -21,7 +21,8 @@ ADR-008でエンジン契約とWorkerプールを確定したが、UIフレー�
 - SvelteKitのビルドは Vite（ADR-008の推奨と一致）。
 - サーバールートを持たない完全クライアント構成のため **`adapter-static`（プリレンダリング／SPAフォールバック）** を採用。Cloudflare Pages に純静的アセットとして配信する（ADR-001「Workerは静的配信のみ」と整合）。
 - `adapter-cloudflare` はSSR/Functions用のWorkerを増やすため**不採用**（本件はサーバー処理を持たない）。
-- 配信ヘッダ（CSP等・ADR-004）は Cloudflare Pages の `_headers` で付与。COOP/COEPは不要（調査確定）。
+- 配信ヘッダ（CSP等・ADR-004）は `_headers` で付与。COOP/COEPは不要（調査確定）。
+- **更新（2026-09-02）**: 実際の配信先は Cloudflare **Pages ではなく Workers の Static Assets**（`wrangler.toml` の `[assets]`）。`adapter-static` の出力をそのまま配信する点と `_headers` が効く点は同じで、本決定（`adapter-static` 採用・`adapter-cloudflare` 不採用）は変わらない。
 
 ### 3. 状態管理: Svelte 5 runes（`$state` / `$derived` / stores）
 
