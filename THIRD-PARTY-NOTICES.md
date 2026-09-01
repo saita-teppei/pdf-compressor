@@ -1,9 +1,9 @@
 # サードパーティ通知（Third-Party Notices）
 
-- Date: 2026-09-01
+- Date: 2026-09-02
 - Related: ADR-003, COMPLIANCE.md（§4 依存ライセンス点検, §5）
 
-本ファイルは、本サービスが利用する第三者ソフトウェアのライセンスと著作権表示を集約する。**依存構成が確定した時点で正式版を生成**する。現段階はテンプレートと確定済みの主要依存のみ。
+本ファイルは、本サービスが利用する第三者ソフトウェアのライセンスと著作権表示を集約する。MVP の依存構成は確定済みで、下表は 2026-09-02 時点の `package.json` / `package-lock.json` と一致する。未了項目は末尾の注記を参照。
 
 ## 記載フォーマット
 
@@ -16,8 +16,9 @@
 
 | 依存 | バージョン | ライセンス | AGPL結合可否 | 備考 |
 |---|---|---|---|---|
-| @jspawn/ghostscript-wasm | ^0.0.2 | AGPL-3.0 | 可（AGPL側を採用: ADR-003） | 圧縮エンジン（画像/スキャン）。gs.wasm 同梱 |
-| pdfcpu-wasm | ^0.1.0 | Apache-2.0（ラッパーMIT） | 可 | 圧縮エンジン（構造最適化）＋ inspect。**pdfcpu.wasm(30MB) は Cloudflare の25MiB/ファイル上限のため同梱せず jsdelivr から版固定＋SHA-256検証で取得**（ADR-004）。JSラッパーは同梱 |
+| @jspawn/ghostscript-wasm | 0.0.2 | AGPL-3.0 | 可（AGPL側を採用: ADR-003） | 圧縮エンジン（画像/スキャン）。gs.wasm を同梱・自己ホスト配信。**本パッケージが AGPL-3.0 であることが、アプリ全体を AGPL-3.0 とする直接の理由**（§下記の著作権表示）|
+| pdfcpu-wasm（npmラッパー） | 0.1.0 | MIT | 可 | JSラッパー。同梱 LICENSE は MIT（`Copyright (c) 2025 jsscheller`）。ラッパーJSのみ同梱 |
+| pdfcpu（`pdfcpu.wasm` の中身） | pdfcpu-wasm 0.1.0 に対応 | Apache-2.0（上流） | 可 | 構造最適化＋inspect の実体。**pdfcpu.wasm(30MB) は Cloudflare の25MiB/ファイル上限のため同梱せず jsdelivr から版固定＋SHA-256検証で取得**（ADR-004）|
 | svelte / @sveltejs/kit / adapter-static | ^5 / ^2 / ^3 | MIT | 可 | UI・ビルド・静的配信（ADR-009） |
 | @sveltejs/vite-plugin-svelte / vite | ^4 / ^5 | MIT | 可 | ビルド |
 | comlink | ^4.4.2 | Apache-2.0 | 可 | メイン↔Worker RPC（ADR-009） |
@@ -36,10 +37,47 @@
 
 > 注: `@jspawn/ghostscript-wasm` が AGPL-3.0 のため、アプリ全体が AGPL-3.0（ADR-003）。上記はいずれも AGPLv3 と結合可能。
 
+## 著作権表示・必要な通知文（COMPLIANCE.md §3/§5）
+
+配信物に結合される第三者ソフトウェアの著作権表示を保持する。ライセンス全文は各パッケージ同梱の
+`LICENSE`（`node_modules/<pkg>/LICENSE`）と、本リポジトリ直下の `LICENSE`（AGPLv3全文）による。
+
+### Ghostscript（`@jspawn/ghostscript-wasm` の `gs.wasm`）
+
+```
+Ghostscript
+Copyright (C) Artifex Software, Inc.
+Licensed under the GNU Affero General Public License version 3.
+```
+
+同梱の `node_modules/@jspawn/ghostscript-wasm/LICENSE` は AGPLv3 の全文（著作権行を持たない標準テキスト）。
+本アプリはリポジトリ直下 `LICENSE` に同一の全文を保持し、アプリ内フッターからソースと稼働コミットへ導線を張る
+（AGPLv3 §13, `src/routes/+layout.svelte`）。
+
+### pdfcpu-wasm（JSラッパー）
+
+```
+MIT License
+Copyright (c) 2025 jsscheller
+https://github.com/jsscheller/pdfcpu-wasm
+```
+
+### pdfcpu（`pdfcpu.wasm` の中身）
+
+```
+pdfcpu — Apache License 2.0
+https://github.com/pdfcpu/pdfcpu
+```
+
+> **未了**: npm パッケージ `pdfcpu-wasm` はラッパーの MIT LICENSE のみを同梱し、pdfcpu 上流の
+> Apache-2.0 ライセンス全文と `NOTICE` を含んでいない。Apache-2.0 §4 はこれらの保持を求めるため、
+> 上流リポジトリから全文・NOTICE・著作権行を取得して本ファイルへ転記する必要がある。
+> 上記の Apache-2.0 表記は上流リポジトリの記載に基づくもので、同梱ファイルによる裏取りは未実施。
+
 ## 点検メモ
 
 - Apache-2.0 / MIT / BSD / ISC は AGPLv3 と結合可（著作権表示・通知の保持が必要）。
 - GPL-2.0 **only** は AGPLv3 と非互換のため採用しない。
 - 各依存の**著作権表示・ライセンス全文**は、配信物または本ファイルに保持する。
 
-> 生成手順（依存確定後）: パッケージマネージャのライセンス抽出ツール等で一覧を生成し、本テンプレートへ反映する。
+> 更新手順: 依存を追加・更新したら、`node_modules/<pkg>/package.json` の `license` と同梱 `LICENSE` を確認し、本ファイルの表と「著作権表示・必要な通知文」節へ反映する（COMPLIANCE.md §4/§5）。npm メタデータの `license` はラッパーのものを指す場合があるため、同梱 LICENSE の実物を必ず見る（`pdfcpu-wasm` が実例）。
