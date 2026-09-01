@@ -1,0 +1,8 @@
+node_modules/
+dist/
+out/
+browser-results*.json
+selfcheck.json
+test-results/
+playwright-report/
+.vite/

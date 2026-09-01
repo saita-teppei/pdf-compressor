@@ -1,0 +1,13 @@
+# 生成PDFはコミットしない (CORPUS.md §1 / AGPL方針)。generate_corpus.py で再現する。
+scan-bw/
+scan-gray/
+scan-color/
+photo/
+text/
+mixed/
+vector/
+vertical-ja/
+*.pdf
+
+# manifest.json は参照スナップショットとして残す (Pillow等の版差で実バイトは変わりうる)
+!manifest.json

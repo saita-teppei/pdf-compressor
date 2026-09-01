@@ -1,0 +1,270 @@
+{
+  "generatedBy": "generate_corpus.py",
+  "note": "All samples are procedurally generated (CC0). Regenerate with generate_corpus.py; do not rely on committed PDFs.",
+  "samples": [
+    {
+      "id": "scan-bw-small-01",
+      "path": "corpus/scan-bw/small-01.pdf",
+      "category": "scan-bw",
+      "sizeBytes": 45739,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "a1ebd174cee0b79e8fb76ed2cf604cde2ab7458d781534c3f712b4b3bbb571f1"
+    },
+    {
+      "id": "scan-gray-small-01",
+      "path": "corpus/scan-gray/small-01.pdf",
+      "category": "scan-gray",
+      "sizeBytes": 506251,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "8d9517b56d28e88d11dd7e560f44f961b73ebf4a5cc5c7a533cc52b47dd41b4c"
+    },
+    {
+      "id": "scan-color-small-01",
+      "path": "corpus/scan-color/small-01.pdf",
+      "category": "scan-color",
+      "sizeBytes": 442776,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "88805c519686c875fae1e7050869e665362ad501a0718da40f077bcefc8c3c2d"
+    },
+    {
+      "id": "photo-small-01",
+      "path": "corpus/photo/small-01.pdf",
+      "category": "photo",
+      "sizeBytes": 493931,
+      "pages": 1,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "915ca9e1373ffa5d67d81ee566fc58f2edce388c54ae1d5c6c789c290734eac6"
+    },
+    {
+      "id": "text-small-01",
+      "path": "corpus/text/small-01.pdf",
+      "category": "text",
+      "sizeBytes": 7897,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text",
+        "bookmarks"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "fda31d38b14f50a948431fddaa597b77fc4d41a06d5bcedb5937895b1976af3a"
+    },
+    {
+      "id": "mixed-small-01",
+      "path": "corpus/mixed/small-01.pdf",
+      "category": "mixed",
+      "sizeBytes": 261113,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text",
+        "images",
+        "bookmarks"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "80e277d44e6958931e8503e204da2bbdbcc15a8c5b7e7b0168918d0d78941af3"
+    },
+    {
+      "id": "vector-small-01",
+      "path": "corpus/vector/small-01.pdf",
+      "category": "vector",
+      "sizeBytes": 45909,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "vector",
+        "text"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "3fca357c7db3999a364ca07eb87c419e0e0e782ebf1fe64a007c0a9b93bb130d"
+    },
+    {
+      "id": "vertical-ja-small-01",
+      "path": "corpus/vertical-ja/small-01.pdf",
+      "category": "vertical-ja",
+      "sizeBytes": 13098,
+      "pages": 2,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "9bc8d857b9b9373970fcacda986e6e7c72fcc87ede473d44e94128c7ef14d61b"
+    },
+    {
+      "id": "scan-bw-medium-01",
+      "path": "corpus/scan-bw/medium-01.pdf",
+      "category": "scan-bw",
+      "sizeBytes": 546171,
+      "pages": 16,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "5d0c5195e73d4c4796868594e11cd630fe7b84280618e57a5ff368e8d32e1680"
+    },
+    {
+      "id": "scan-gray-medium-01",
+      "path": "corpus/scan-gray/medium-01.pdf",
+      "category": "scan-gray",
+      "sizeBytes": 7551139,
+      "pages": 16,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "c6a68e716aba10aebb32254a0849cadd7f6c03f09643c4bf24b32cf30d4a06d4"
+    },
+    {
+      "id": "scan-color-medium-01",
+      "path": "corpus/scan-color/medium-01.pdf",
+      "category": "scan-color",
+      "sizeBytes": 7752719,
+      "pages": 16,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "10bd37509ae518e1709aeb5847e4747962143cff293383cd844113475b40b05e"
+    },
+    {
+      "id": "photo-medium-01",
+      "path": "corpus/photo/medium-01.pdf",
+      "category": "photo",
+      "sizeBytes": 9670302,
+      "pages": 8,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "images"
+      ],
+      "hasText": false,
+      "hasSignature": false,
+      "sha256": "bed9a8d5062027601289e3586bd06123c869a38c027a583ce9e653f2a8912947"
+    },
+    {
+      "id": "text-medium-01",
+      "path": "corpus/text/medium-01.pdf",
+      "category": "text",
+      "sizeBytes": 100377,
+      "pages": 40,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text",
+        "bookmarks"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "b74758f5ef16921eb9fcf694027a389b7b247c66b23b0e0ebd14936c29acd9ec"
+    },
+    {
+      "id": "mixed-medium-01",
+      "path": "corpus/mixed/medium-01.pdf",
+      "category": "mixed",
+      "sizeBytes": 3010772,
+      "pages": 13,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text",
+        "images",
+        "bookmarks"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "47d89773bd948032544bea5156c8789727c98a865bbeaa9ae36bd8b1ce96b5ed"
+    },
+    {
+      "id": "vector-medium-01",
+      "path": "corpus/vector/medium-01.pdf",
+      "category": "vector",
+      "sizeBytes": 113297,
+      "pages": 5,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "vector",
+        "text"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "85d6235aac7e68e1f46361d90d399fae85d655f00a14a228686796ec362f3f0c"
+    },
+    {
+      "id": "vertical-ja-medium-01",
+      "path": "corpus/vertical-ja/medium-01.pdf",
+      "category": "vertical-ja",
+      "sizeBytes": 28867,
+      "pages": 5,
+      "source": "self-generated",
+      "license": "CC0-1.0",
+      "notes": "procedurally generated synthetic sample",
+      "features": [
+        "text"
+      ],
+      "hasText": true,
+      "hasSignature": false,
+      "sha256": "e28d069ca3df6672fbe860cf4d34414a64b26bc04b57c2af78b260e216e39b5f"
+    }
+  ]
+}

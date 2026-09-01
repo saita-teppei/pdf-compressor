@@ -1,0 +1,22 @@
+{
+  "name": "pdf-compressor-browser-bench",
+  "private": true,
+  "type": "module",
+  "description": "実ブラウザ計測ハーネス (PoC)。GS/pdfcpu WASM を Web Worker+Comlink で駆動し、時間/ロード/メモリを実測する。ADR-004/005/008 のブラウザ経路検証。Dev-only。",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@jspawn/ghostscript-wasm": "^0.0.2",
+    "comlink": "^4.4.2",
+    "pdfcpu-wasm": "^0.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  }
+}

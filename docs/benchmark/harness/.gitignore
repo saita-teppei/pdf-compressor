@@ -1,0 +1,13 @@
+node_modules/
+__pycache__/
+out/
+smoke*.mjs
+smoke*.pdf
+results.json
+results-ssim.json
+explore-results.json
+explore-results-ssim.json
+route-results.json
+route-results-ssim.json
+inspect.json
+package-lock.json

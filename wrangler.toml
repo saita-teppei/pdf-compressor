@@ -1,0 +1,10 @@
+# Cloudflare Workers（Static Assets）でのデプロイ設定。
+# SSR は持たず、adapter-static の出力 build/ を静的アセットとして配信する（ADR-001/009）。
+# アカウントは環境変数 CLOUDFLARE_ACCOUNT_ID で指定する（このファイルには含めない）。
+name = "pdf-compressor"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "./build"
+# 単一ページ構成。未知パスは index.html を返す（クライアントで解決）。
+not_found_handling = "single-page-application"

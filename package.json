@@ -1,0 +1,33 @@
+{
+  "name": "pdf-compressor",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "ブラウザ(クライアント側)完結のPDF圧縮サービス。SvelteKit + adapter-static（ADR-009）。全依存はAGPL-3.0結合可（ADR-003）。",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sync": "svelte-kit sync",
+    "paraglide": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
+    "check": "npm run paraglide && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@inlang/paraglide-js": "^2.25.0",
+    "@sveltejs/adapter-static": "^3.0.6",
+    "@sveltejs/kit": "^2.8.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@vite-pwa/sveltekit": "^1.1.0",
+    "svelte": "^5.1.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "@jspawn/ghostscript-wasm": "^0.0.2",
+    "comlink": "^4.4.2",
+    "fflate": "^0.8.2",
+    "pdfcpu-wasm": "^0.1.0"
+  }
+}

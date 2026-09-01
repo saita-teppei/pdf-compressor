@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PDF圧縮">
+  <rect width="512" height="512" rx="96" fill="#2563eb" />
+  <rect x="136" y="96" width="240" height="320" rx="24" fill="#ffffff" />
+  <text x="256" y="250" font-family="system-ui, sans-serif" font-size="88" font-weight="700"
+        fill="#2563eb" text-anchor="middle">PDF</text>
+  <path d="M256 300 v70 M256 370 l-34 -34 M256 370 l34 -34" stroke="#2563eb" stroke-width="20"
+        stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg>

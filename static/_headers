@@ -1,0 +1,17 @@
+# Cloudflare Pages 配信ヘッダ（ADR-004）。
+# 主CSP（default-src/script-src/worker-src/connect-src/style-src 等）は SvelteKit の kit.csp が
+# ビルド毎に inline script をハッシュ化して各HTMLの <meta> に出力する（svelte.config.js）。
+# ここではヘッダでしか表現できない/補助的な項目のみを付与し、meta の主CSPと二重指定して
+# 競合させない（ヘッダに script-src を書くとビルド毎ハッシュと食い違い inline が壊れるため）。
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: frame-ancestors 'none'
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+
+# コンテンツハッシュ付きの不変アセット（JS/CSS/WASM）は長期キャッシュ（ADR-004）。
+/_app/immutable/*
+  Cache-Control: public, max-age=31536000, immutable

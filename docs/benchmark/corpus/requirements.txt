@@ -1,0 +1,7 @@
+# コーパス生成器 (generate_corpus.py) の依存
+# いずれも寛容ライセンスで AGPL 結合可 (COMPLIANCE.md §4)。開発時のみ使用。
+reportlab>=4.0   # BSD
+pillow>=10.0     # MIT-CMU (HPND)
+img2pdf>=0.5     # LGPL-3.0 (dev専用ツール。scan-bw を真の1-bit/CCITTで埋め込むため。アプリには非同梱)
+# 検証用 (任意):
+# pypdf>=4.0     # BSD

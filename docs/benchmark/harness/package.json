@@ -1,0 +1,10 @@
+{
+  "name": "pdf-compressor-bench",
+  "private": true,
+  "type": "module",
+  "description": "Node measurement harness for Ghostscript WASM (ADR-005/008). Dev-only.",
+  "dependencies": {
+    "@jspawn/ghostscript-wasm": "^0.0.2",
+    "pdfcpu-wasm": "^0.1.0"
+  }
+}
