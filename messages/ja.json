@@ -51,5 +51,8 @@
   "kind_mixed": "混在",
   "kind_text": "テキスト/ベクター",
   "route_passthrough": "無変換（元）",
-  "lang_label": "言語"
+  "lang_label": "言語",
+  "footer_license": "ライセンス: AGPL-3.0",
+  "footer_source": "ソースコード",
+  "footer_build": "ビルド {hash}"
 }

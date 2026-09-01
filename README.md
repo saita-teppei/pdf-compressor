@@ -3,6 +3,8 @@
 完全クライアント側で動作するPDF圧縮アプリ。**PDFはサーバーへ送信しません**（ADR-001）。
 SvelteKit + `adapter-static`（ADR-009）で静的サイトとしてビルドし、Cloudflare Pages に配信する。
 
+ソースコード: <https://github.com/saita-teppei/pdf-compressor>（AGPL-3.0）
+
 設計上の決定は各 ADR（リポジトリ直下 `ADR-*.md`）と `docs/` を参照。実測知見は `docs/benchmark/RESULTS.md`。
 
 ## 機能（MVP）

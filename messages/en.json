@@ -51,5 +51,8 @@
   "kind_mixed": "Mixed",
   "kind_text": "Text/Vector",
   "route_passthrough": "No change (original)",
-  "lang_label": "Language"
+  "lang_label": "Language",
+  "footer_license": "License: AGPL-3.0",
+  "footer_source": "Source code",
+  "footer_build": "Build {hash}"
 }

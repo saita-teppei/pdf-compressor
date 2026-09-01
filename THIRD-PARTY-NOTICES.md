@@ -30,6 +30,7 @@
 |---|---|---|
 | @inlang/plugin-message-format | Apache-2.0 | inlang メッセージ書式プラグイン。ビルド時に CDN から読み込む（生成専用） |
 | svelte-check / typescript | MIT / Apache-2.0 | 型チェック |
+| @types/node | MIT | vite.config.ts の Node API（child_process / process.env）の型。配信物には含まれない |
 | （ベンチ）@playwright/test, axe-core | Apache-2.0 / MPL-2.0 | 実ブラウザ計測・a11y 監査（docs/benchmark, dev専用） |
 | （コーパス生成）reportlab, pillow, img2pdf | BSD / HPND / LGPL-3.0 | 合成コーパス生成（dev専用, アプリ非同梱） |
 

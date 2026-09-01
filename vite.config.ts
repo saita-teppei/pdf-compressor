@@ -1,7 +1,27 @@
+import { execSync } from "node:child_process";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { SvelteKitPWA } from "@vite-pwa/sveltekit";
 import { defineConfig, type Plugin } from "vite";
+
+// AGPLv3 §13 の「対応するソース」提供（COMPLIANCE.md §1/§2）。稼働中のビルドがどのコミットから
+// 生成されたかをアプリ内に表示し、そのコミットへ到達できるようにする。
+// CI（Cloudflare Workers Builds / Pages）は環境変数で SHA を渡すのでそれを優先し、
+// ローカルは git から取る。git も無い環境では "unknown" に落として、ビルド自体は壊さない。
+const SOURCE_URL = "https://github.com/saita-teppei/pdf-compressor";
+
+function resolveCommitHash(): string {
+  const fromEnv =
+    process.env.WORKERS_CI_COMMIT_SHA ?? process.env.CF_PAGES_COMMIT_SHA ?? process.env.GITHUB_SHA;
+  if (fromEnv) return fromEnv.slice(0, 7);
+  try {
+    return execSync("git rev-parse --short=7 HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+  } catch {
+    return "unknown";
+  }
+}
 
 // pdfcpu-wasm ライブラリ内部の `new URL("pdfcpu.wasm", import.meta.url)` を Vite が静的解析して
 // 30MB アセットを出力してしまう（実行時は p.wasm 注入で通らない死コード）。この巨大アセットを
@@ -50,6 +70,11 @@ export default defineConfig({
       devOptions: { enabled: false },
     }),
   ],
+  // ソース公開の導線（AGPLv3 §13）。ビルド時に確定させ、実行時の取得処理を持たない。
+  define: {
+    __SOURCE_URL__: JSON.stringify(SOURCE_URL),
+    __COMMIT_HASH__: JSON.stringify(resolveCommitHash()),
+  },
   // 重い処理は Web Worker（ES module）で実行する（ADR-008）。
   worker: { format: "es", plugins: () => [dropPdfcpuWasm()] },
   // Emscripten(gs.js) の CJS グルーは dev の事前バンドルで問題が出やすいので除外する。

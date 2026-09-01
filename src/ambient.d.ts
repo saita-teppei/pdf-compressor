@@ -30,3 +30,7 @@ declare module "@jspawn/ghostscript-wasm/gs.js" {
   const createGs: (opts?: Record<string, unknown>) => Promise<any>;
   export default createGs;
 }
+
+// ビルド時に vite.config.ts の define で埋め込む定数（AGPLv3 §13 のソース提供導線）。
+declare const __SOURCE_URL__: string;
+declare const __COMMIT_HASH__: string;
