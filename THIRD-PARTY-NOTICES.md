@@ -39,8 +39,8 @@
 
 ## 著作権表示・必要な通知文（COMPLIANCE.md §3/§5）
 
-配信物に結合される第三者ソフトウェアの著作権表示を保持する。ライセンス全文は各パッケージ同梱の
-`LICENSE`（`node_modules/<pkg>/LICENSE`）と、本リポジトリ直下の `LICENSE`（AGPLv3全文）による。
+配信物に結合される第三者ソフトウェアの著作権表示を保持する。ライセンス全文はリポジトリ内 `licenses/` に保持する
+（アプリ本体の AGPLv3 全文はリポジトリ直下の `LICENSE`）。
 
 ### Ghostscript（`@jspawn/ghostscript-wasm` の `gs.wasm`）
 
@@ -50,7 +50,7 @@ Copyright (C) Artifex Software, Inc.
 Licensed under the GNU Affero General Public License version 3.
 ```
 
-同梱の `node_modules/@jspawn/ghostscript-wasm/LICENSE` は AGPLv3 の全文（著作権行を持たない標準テキスト）。
+全文: `licenses/ghostscript-wasm-AGPL-3.0.txt`（AGPLv3 の標準テキストで、著作権行は含まれない）。
 本アプリはリポジトリ直下 `LICENSE` に同一の全文を保持し、アプリ内フッターからソースと稼働コミットへ導線を張る
 （AGPLv3 §13, `src/routes/+layout.svelte`）。
 
@@ -62,17 +62,25 @@ Copyright (c) 2025 jsscheller
 https://github.com/jsscheller/pdfcpu-wasm
 ```
 
+全文: `licenses/pdfcpu-wasm-MIT.txt`。
+
 ### pdfcpu（`pdfcpu.wasm` の中身）
 
 ```
-pdfcpu — Apache License 2.0
+Copyright 2018 The pdfcpu Authors.
+
+Licensed under the Apache License, Version 2.0.
 https://github.com/pdfcpu/pdfcpu
 ```
 
-> **未了**: npm パッケージ `pdfcpu-wasm` はラッパーの MIT LICENSE のみを同梱し、pdfcpu 上流の
-> Apache-2.0 ライセンス全文と `NOTICE` を含んでいない。Apache-2.0 §4 はこれらの保持を求めるため、
-> 上流リポジトリから全文・NOTICE・著作権行を取得して本ファイルへ転記する必要がある。
-> 上記の Apache-2.0 表記は上流リポジトリの記載に基づくもので、同梱ファイルによる裏取りは未実施。
+全文: `licenses/pdfcpu-Apache-2.0.txt`（上流 `pdfcpu/pdfcpu` の `LICENSE.txt` と同一。
+npm パッケージ `pdfcpu-wasm` はラッパーの MIT LICENSE しか同梱しないため、上流から取得して保持する）。
+著作権行は上流ソースヘッダ（`pkg/api/api.go` ほか）の記載による。
+
+> **NOTICE ファイルについて**: 上流 `pdfcpu/pdfcpu` のリポジトリ直下には `LICENSE.txt` のみが存在し、
+> `NOTICE` ファイルは**無い**（2026-09-02 時点で確認）。Apache-2.0 §4(d) の NOTICE 再配布義務は
+> 「頒布物が NOTICE を含む場合」に生じるため、本件では該当せず、上記の著作権表示・ライセンス全文の
+> 保持で §4 を満たす。
 
 ## 点検メモ
 

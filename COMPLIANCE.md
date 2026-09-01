@@ -60,7 +60,7 @@ AGPLv3 は copyleft が強いため、**AGPLと結合可能なライセンスの
 - [x] 稼働版のバージョン識別子が表示され、対応コミットへ辿れる（`vite.config.ts` の define でコミットハッシュを埋め込み、フッターから該当コミットへリンク）
 - [x] 全依存のライセンスが点検され、AGPL非互換が無い（`THIRD-PARTY-NOTICES.md`。GPL-2.0-only 無し）
 - [x] `THIRD-PARTY-NOTICES.md` が最新（2026-09-02 時点の依存と一致）
-- [ ] Ghostscript等の著作権表示・通知を保持している（Ghostscript / pdfcpu-wasm は記載済み。**pdfcpu 上流の Apache-2.0 全文と NOTICE の転記が未了** — `THIRD-PARTY-NOTICES.md` の「未了」注記を参照）
+- [x] Ghostscript等の著作権表示・通知を保持している（`THIRD-PARTY-NOTICES.md` の著作権表示節＋`licenses/` にライセンス全文3件。pdfcpu 上流に NOTICE ファイルは存在しないことを確認済み）
 
 ## Revisit
 
